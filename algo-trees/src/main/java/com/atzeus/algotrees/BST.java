@@ -4,7 +4,7 @@ package com.atzeus.algotrees;
  * Binary search tree.
  * */
 public class BST {
-  Node root;
+  TreeNode root;
 
   public static BST create(int[] arr) {
     BST bst = new BST();
@@ -18,18 +18,18 @@ public class BST {
     root = null;
   }
 
-  public Node getRoot() {
+  public TreeNode getRoot() {
     return root;
   }
 
-  public Node insert(int el) {
+  public TreeNode insert(int el) {
     root = insert(el, root);
     return root;
   }
 
-  private Node insert(int el, Node root) {
+  private TreeNode insert(int el, TreeNode root) {
     if (root == null) {
-      return new Node(el);
+      return new TreeNode(el);
     } else if (el < root.val) {
       root.left = insert(el, root.left);
     } else {
@@ -43,14 +43,14 @@ public class BST {
     doDelete(el, this.root);
   }
 
-  private int findMin(Node root) {
-    Node curr = root;
+  private int findMin(TreeNode root) {
+    TreeNode curr = root;
     while (curr.left != null) {
       curr = curr.left;
     }
     return curr.val;
   }
-  private Node doDelete(int el, Node root) {
+  private TreeNode doDelete(int el, TreeNode root) {
     if (root == null) {
       return null;
     }

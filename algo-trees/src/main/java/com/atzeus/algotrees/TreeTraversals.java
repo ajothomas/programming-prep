@@ -10,19 +10,19 @@ public class TreeTraversals {
   public static void main(String[] args) {
     int[] arr = {5, 3, 4, 2, 1, 7, 6, 8, 10, 11};
     BST bst = BST.create(arr);
-    Node root = bst.getRoot();
+    TreeNode root = bst.getRoot();
 
     TreeTraversals.inorder(root);
     TreeTraversals.preorder(root);
     TreeTraversals.levelOrder(root);
   }
 
-  public static void inorder(Node node) {
+  public static void inorder(TreeNode node) {
     System.out.print("\nInorder traversal:\t");
     doInorder(node);
   }
 
-  private static void doInorder(Node node) {
+  private static void doInorder(TreeNode node) {
     if (node == null) {
       return;
     }
@@ -31,12 +31,12 @@ public class TreeTraversals {
     doInorder(node.right);
   }
 
-  public static void preorder(Node node) {
+  public static void preorder(TreeNode node) {
     System.out.print("\nPreorder traversal:\t");
     doPreorder(node);
   }
 
-  private static void doPreorder(Node node) {
+  private static void doPreorder(TreeNode node) {
     if (node == null) {
       return;
     }
@@ -45,23 +45,23 @@ public class TreeTraversals {
     doPreorder(node.right);
   }
 
-  public static void levelOrder(Node node) {
+  public static void levelOrder(TreeNode node) {
     System.out.print("\nLevel order traversal:\t");
     System.out.print(doLevelOrder(node));
   }
 
-  private static List<List<Integer>> doLevelOrder(Node root) {
+  private static List<List<Integer>> doLevelOrder(TreeNode root) {
     List<List<Integer>> answer = new ArrayList<>();
     if (root == null) {
       return answer;
     }
-    LinkedList<Node> queue = new LinkedList<>();
+    LinkedList<TreeNode> queue = new LinkedList<>();
     queue.add(root);
     while (!queue.isEmpty()) {
       List<Integer> levelList = new ArrayList<>();
       int size = queue.size();
       for (int i = 0; i < size; i++) {
-        Node temp = queue.removeFirst();
+        TreeNode temp = queue.removeFirst();
         levelList.add(temp.val);
         if (temp.left != null) {
           queue.add(temp.left);

@@ -1,11 +1,11 @@
 package com.atzeus.algotrees;
 
-public class Node {
+public class TreeNode {
   int val;
-  Node left;
-  Node right;
+  TreeNode left;
+  TreeNode right;
 
-  Node(int val) {
+  TreeNode(int val) {
     this.val = val;
     this.left = null;
     this.right = null;
